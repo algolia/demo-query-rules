@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <title>Query Rules demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <!--[if lte IE 9]>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.2/dist/instantsearch.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+  <!-- INTERFACE -->
+  <header class="section">
+    <div id="rules-scenario">
+      <button class="rules-scenarii" data-rule="1">
+        <h3>1. Promote Results</h3>
+        <p>Promote 2 Star Trek movies on the query "<em>star wars</em>"</p>
+      </button>
+      <button class="rules-scenarii" data-rule="2">
+        <h3>2. Promotional Banner</h3>
+        <p>Display a banner on the query "<em>documentary</em>"</p>
+      </button>
+      <button class="rules-scenarii" data-rule="3">
+        <h3>3. Automatic Filter</h3>
+        <p>Automatically filter on an actor's name</p>
+      </button>
+    </div>
+
+    <div id="search-input"></div>
+    <div id="search-input-icon"></div>
+  </header>
+
+  <main class="section clear">
+    <div id="promotional_banner"></div>
+    <div id="automatic-facet-actors"></div>
+
+    <div id="hits"></div>
+  </main>
+
+  <footer class="section">
+    Source Code on <a href="https://github.com/algolia/demo-query-rules">Github</a> -
+    <!-- Read the <a href="https://www.algolia.com/doc/guides/relevance/query-rules/">guide</a> - -->
+    Powered by <a href="https://www.algolia.com">Algolia</a>
+  </footer>
+  <!-- /INTERFACE -->
+
+
+  <!-- TEMPLATES -->
+  <script type="text/html" id="hit-template">
+    <div class="hit" style="background-image: url({{image}})">
+      <div class="hit-flags">
+        {{#promoted}}<span class="hit-flag">Promoted</span>{{/promoted}}
+      </div>
+      <div class="hit-content">
+        <h2 class="hit-name">{{{_highlightResult.title.value}}}</h2>
+        <p class="hit-actors">{{#_highlightResult.actors}}{{{value}}}{{/_highlightResult.actors}}</p>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" id="no-results-template">
+    <div id="no-results-message">
+      <p>We didn't find any results for the search <em>"{{query}}"</em>.</p>
+    </div>
+  </script>
+  <!-- /TEMPLATES -->
+
+
+  <!-- SCRIPTS -->
+  <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.0.2/dist/instantsearch.min.js"></script>
+  <script src="app.js"></script>
+  <!-- /SCRIPTS -->
+</body>
+</html>

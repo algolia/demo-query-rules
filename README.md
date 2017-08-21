@@ -1,2 +1,3 @@
-# demo-query-rules
-Demo for the Query Rules
+# Query Rules demo
+
+![query rules demo preview](query-rules.gif)
