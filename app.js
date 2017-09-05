@@ -2,9 +2,9 @@
 /* global instantsearch */
 
 app({
-  appId: '8O7YK5NN1Z',
-  apiKey: 'cfb828793d65936bc33ab9d02a51e3a6',
-  indexName: 'query-rules-demo'
+  appId: 'latency',
+  apiKey: '6be0576ff61c053d5f9a3225e2a90f76',
+  indexName: 'demo-query-rules'
 });
 
 var randomCounter = Math.floor(Math.random() * 4);
