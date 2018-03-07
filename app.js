@@ -122,7 +122,7 @@ function extractFilteredActors(params) {
   var regex = /[,"]?actors:(.*?)[,"]/g
 
   matches = []
-  while ((match = regex.exec(filter)) != null) {
+  while ((match = regex.exec(decodeURIComponent(filter))) != null) {
     matches.push(normalizeActor(match[1]));
   }
   return matches
