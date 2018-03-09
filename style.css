@@ -178,7 +178,7 @@ header {
   background-image:         linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,.8));
 }
 .hit {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   background-position: center center;
@@ -186,6 +186,10 @@ header {
   justify-content: space-between;
   flex-grow: 1;
   flex-basis: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 .ais-hits {
   display: flex;
@@ -193,7 +197,7 @@ header {
   flex-wrap: wrap;
 }
 .ais-hits--item {
-  display: flex;
+  position: relative;
   max-width: 12.5%;
   margin-bottom: 30px;
   flex-grow: 1;
@@ -211,11 +215,6 @@ header {
     max-width: 33.333%;
     flex-basis: 33.333%;
   }
-}
-.ais-hits--item:before {
-  display: inline-block;
-  padding-bottom: 165%;
-  content: '';
 }
 .hit-content {
   font-size: 11px;
